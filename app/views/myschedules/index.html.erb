@@ -1,0 +1,42 @@
+<h2>スケジュール一覧</h2>
+<% if flash.notice %>
+    <p class="notice"><%= flash.notice %></p>
+<% end %>
+
+<table> 
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>タイトル</th>
+            <th>開始時間</th>
+            <th>終了時間</th>
+            <th>メモ</th>
+            <th>更新日</th>
+            <th>作成日</th>
+            <th>詳細</th>
+            <th>編集</th>
+            <th>削除</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @myschedules.each do |myschedule| %>
+            <tr>
+                <td><%= myschedule.id %></td>
+                <td><%= myschedule.title %></td>
+                <td><%= myschedule.starttime.to_s(:datetime_jp) %></td>
+                <td><%= myschedule.endingtime.to_s(:datetime_jp) %></td>
+                <td><%= myschedule.detail %></td>
+                <td><%= myschedule.updated_at.to_s(:datetime_jp) %></td>
+                <td><%= myschedule.created_at.to_s(:datetime_jp) %></td>
+                <td><%= link_to "詳細", myschedule %></td>
+                <td><%= link_to "編集", [:edit, myschedule] %></td>
+                <td> <%= link_to "削除", myschedule, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                </td>
+
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p><%= link_to "スケジュール新規登録", :new_myschedule %></p>
+
