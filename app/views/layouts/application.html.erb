@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+        <h1>スケジュール</h1>
+      </header>
+      <%= yield %>
+      <footer>
+        <h1><%= Date.today %></h1>
+      </footer>
   </body>
 </html>

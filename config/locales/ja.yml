@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      myschedule: スケジュール
+    attributes:
+      myschedule:
+        title: タイトル
+        starttime: 開始時間
+        endingtime: 終了時間
+        detail: メモ
+        
+        
+        
